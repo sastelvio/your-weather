@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -8,6 +7,7 @@ function App() {
   const [location, setLocation] = useState(false);
   //Declare a new state to store the weather data from the API
   const [weather, setWeather] = useState(false);
+
 
   //A function expression to fetch data from the API 
   let getWeather = async (lat, long) => {
@@ -19,9 +19,34 @@ function App() {
         lang: 'en',
         units: 'metric'
       }
-    });
+    })
     setWeather(res.data);
-    console.log(res.data);
+    if(res.data["weather"][0]["main"].includes('Rain')){ //when the weather is rain
+      var weatherEffect = document.createElement('section');
+          weatherEffect.className = "rain";
+          document.body.appendChild(weatherEffect);
+    }else if(res.data["weather"][0]["main"].includes('Clouds')){ //when the weather is clouds
+      var weatherEffect = document.createElement('div');
+          weatherEffect.id = "clouds";
+          var cloud1 = document.createElement('div');
+          cloud1.className = "cloud x1";
+          var cloud2 = document.createElement('div');
+          cloud2.className = "cloud x2";
+          var cloud3 = document.createElement('div');
+          cloud3.className = "cloud x3";
+          var cloud4 = document.createElement('div');
+          cloud4.className = "cloud x4";
+          var cloud5 = document.createElement('div');
+          cloud5.className = "cloud x5";       
+
+          document.body.appendChild(weatherEffect);
+          document.getElementById("clouds").appendChild(cloud1);
+          document.getElementById("clouds").appendChild(cloud2);
+          document.getElementById("clouds").appendChild(cloud3);
+          document.getElementById("clouds").appendChild(cloud4);
+          document.getElementById("clouds").appendChild(cloud5);
+    }
+    //console.log(es.data);
   }
 
   //Ask the user to get the location
@@ -35,27 +60,31 @@ function App() {
   }, [])
 
   //Check if the user allowed the location, if not return the message about the use of the location to run the main algorithm of the App
-  if (location == false) {
+  if (location === false) {
     return (
       <Fragment>
         You need to allow the location to use the App
       </Fragment>
     );
-  } else if(weather == false){ //As we are calling an async, to make sure the App only try to show the info after the calling of the API
-    return(
-      <fragment>
-        Loading weather...
-      </fragment>
-    )
-  }else {
+  } else if (weather === false) { //As we are calling an async, to make sure the App only try to show the info after the calling of the API
     return (
       <Fragment>
-        <h3>Climate in your coordinates: ({weather["weather"][0]["description"]})</h3>
+        Loading weather...
+      </Fragment>
+    )
+  } else {
+    return (
+      <Fragment>
+        <div id='current_weather_container'>
+          <h1 id='current_weather'>{Math.round(weather["main"]["temp"])}°C</h1>
+        </div>
+        <h1>{weather["name"]}, {weather["sys"]["country"]}</h1>
+        <h2>{weather["weather"][0]["main"]}</h2>
+        <h5>({weather["weather"][0]["description"]})</h5>
         <hr />
         <ul>
-          <li>Current Temperature: {weather["main"]["temp"]}°</li>
-          <li>Max Temperature: {weather["main"]["temp_max"]}°</li>
-          <li>Min Temperature: {weather["main"]["temp_min"]}°</li>
+          <li>Max Temperature: {Math.round(weather["main"]["temp_max"])}°C</li>
+          <li>Min Temperature: {Math.round(weather["main"]["temp_min"])}°C</li>
           <li>Pressure: {weather["main"]["pressure"]} hPa</li>
           <li>Humidity: {weather["main"]["humidity"]}%</li>
         </ul>

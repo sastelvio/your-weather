@@ -1,6 +1,51 @@
-.App {
+html,
+body {
   text-align: center;
+  background-image: linear-gradient(to top, #C5957F, #E8CDC4, #1F92B0, #18809D, #0F5972, #042C37);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*to Justifi at the center*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*To hide the horizontal scroller appearing during the animation*/
+  overflow: hidden;
 }
+
+/*to style the result returned*/
+#root {
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+  width: 90%;
+  height: 90%;
+  color: #042C37;
+  border-radius: 25px;
+}
+
+#current_weather_container {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  padding: 0 0 0 10px;
+}
+
+#current_weather {
+  font-size: 300px;
+  margin: 5px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -32,7 +77,238 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+
+/*RAIN*/
+
+/*adding background to section
+          and animation named color-change*/
+.rain {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: color-change 10s linear infinite;
+  animation-delay: 1s;
+}
+
+/*adding rain img and making opacity 0*/
+.rain:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/img/rain.png');
+  animation: rain 0.4s linear infinite;
+  opacity: 0;
+}
+
+/* just changing the position of image
+      of rain using keyframes*/
+@keyframes rain {
+  0% {
+    background-position: 0 0;
+    opacity: 1;
+  }
+
+  100% {
+    background-position: 8% 80%;
+    opacity: 1;
+  }
+}
+
+/* applying filter at different angle
+      on different interval using keyframe*/
+@keyframes color-change {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/*END RAIN*/
+
+/*CLOUDS*/
+/*Lets start with the cloud formation rather*/
+
+/*The container will also serve as the SKY*/
+
+
+#clouds {
+  position: absolute;
+  z-index: 1;
+  width: 90%;
+  height: 90%;
+  background: none;
+}
+
+/*Time to finalise the cloud shape*/
+.cloud {
+  width: 200px;
+  height: 60px;
+  background: #fff;
+
+  border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+
+  position: relative;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -55px;
+  left: auto;
+  right: 15px;
+}
+
+/*Time to animate*/
+.x1 {
+  -webkit-animation: moveclouds 15s linear infinite;
+  -moz-animation: moveclouds 15s linear infinite;
+  -o-animation: moveclouds 15s linear infinite;
+  animation: moveclouds 15s linear infinite;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+  left: 200px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 0.6;
+  /*opacity proportional to the size*/
+
+  /*Speed will also be proportional to the size and opacity*/
+  /*More the speed. Less the time in 's' = seconds*/
+  -webkit-animation: moveclouds 25s linear infinite;
+  -moz-animation: moveclouds 25s linear infinite;
+  -o-animation: moveclouds 25s linear infinite;
+  animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+  left: -250px;
+  top: -200px;
+
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8;
+  /*opacity proportional to the size*/
+
+  -webkit-animation: moveclouds 20s linear infinite;
+  -moz-animation: moveclouds 20s linear infinite;
+  -o-animation: moveclouds 20s linear infinite;
+  animation: moveclouds 20s linear infinite;
+}
+
+.x4 {
+  left: 470px;
+  top: -250px;
+
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.75;
+  /*opacity proportional to the size*/
+
+  -webkit-animation: moveclouds 18s linear infinite;
+  -moz-animation: moveclouds 18s linear infinite;
+  -o-animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+  left: -150px;
+  top: -150px;
+
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8;
+  /*opacity proportional to the size*/
+
+  -webkit-animation: moveclouds 20s linear infinite;
+  -moz-animation: moveclouds 20s linear infinite;
+  -o-animation: moveclouds 20s linear infinite;
+  animation: moveclouds 20s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@-moz-keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+@-o-keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }  
+}
+
+@keyframes moveclouds {
+  0% {
+    margin-left: 100%;
+  }
+
+  100% {
+    margin-left: -1000px;
+  }
+}
+
+/*END CLOUD*/
