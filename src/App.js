@@ -21,30 +21,53 @@ function App() {
       }
     })
     setWeather(res.data);
-    if(res.data["weather"][0]["main"].includes('Rain')){ //when the weather is rain
+    if (res.data["weather"][0]["main"].includes('Rain')) { //when the weather is rain
       var weatherEffect = document.createElement('section');
-          weatherEffect.className = "rain";
-          document.body.appendChild(weatherEffect);
-    }else if(res.data["weather"][0]["main"].includes('Clouds')){ //when the weather is clouds
+      weatherEffect.className = "rain";
+      document.body.appendChild(weatherEffect);
+    } else if (res.data["weather"][0]["main"].includes('Clouds')) { //when the weather is clouds
       var weatherEffect = document.createElement('div');
-          weatherEffect.id = "clouds";
-          var cloud1 = document.createElement('div');
-          cloud1.className = "cloud x1";
-          var cloud2 = document.createElement('div');
-          cloud2.className = "cloud x2";
-          var cloud3 = document.createElement('div');
-          cloud3.className = "cloud x3";
-          var cloud4 = document.createElement('div');
-          cloud4.className = "cloud x4";
-          var cloud5 = document.createElement('div');
-          cloud5.className = "cloud x5";       
+      weatherEffect.id = "clouds";
+      var cloud1 = document.createElement('div');
+      cloud1.className = "cloud x1";
+      var cloud2 = document.createElement('div');
+      cloud2.className = "cloud x2";
+      var cloud3 = document.createElement('div');
+      cloud3.className = "cloud x3";
+      var cloud4 = document.createElement('div');
+      cloud4.className = "cloud x4";
+      var cloud5 = document.createElement('div');
+      cloud5.className = "cloud x5";
 
-          document.body.appendChild(weatherEffect);
-          document.getElementById("clouds").appendChild(cloud1);
-          document.getElementById("clouds").appendChild(cloud2);
-          document.getElementById("clouds").appendChild(cloud3);
-          document.getElementById("clouds").appendChild(cloud4);
-          document.getElementById("clouds").appendChild(cloud5);
+      document.body.appendChild(weatherEffect);
+      document.getElementById("clouds").appendChild(cloud1);
+      document.getElementById("clouds").appendChild(cloud2);
+      document.getElementById("clouds").appendChild(cloud3);
+      document.getElementById("clouds").appendChild(cloud4);
+      document.getElementById("clouds").appendChild(cloud5);
+    } else if (res.data["weather"][0]["main"].includes('Snow')) { //when the weather is clouds
+      var weatherEffect = document.createElement('div');
+      weatherEffect.className = "snows";
+      var snow_layer1_a = document.createElement('div');
+      snow_layer1_a.className = "snow layer1 a";
+      var snow_layer1 = document.createElement('div');
+      snow_layer1.className = "snow layer1";
+      var snow_layer2_a = document.createElement('div');
+      snow_layer2_a.className = "snow layer2 a";
+      var snow_layer2 = document.createElement('div');
+      snow_layer2.className = "snow layer2";
+      var snow_layer3_a = document.createElement('div');
+      snow_layer3_a.className = "snow layer3 a";
+      var snow_layer3 = document.createElement('div');
+      snow_layer3.className = "snow layer3";
+
+      document.body.appendChild(weatherEffect);
+      weatherEffect.appendChild(snow_layer1_a);
+      weatherEffect.appendChild(snow_layer1);
+      weatherEffect.appendChild(snow_layer2_a);
+      weatherEffect.appendChild(snow_layer2);
+      weatherEffect.appendChild(snow_layer3_a);
+      weatherEffect.appendChild(snow_layer3);
     }
     //console.log(es.data);
   }
