@@ -45,7 +45,7 @@ function App() {
       document.getElementById("clouds").appendChild(cloud3);
       document.getElementById("clouds").appendChild(cloud4);
       document.getElementById("clouds").appendChild(cloud5);
-    } else if (res.data["weather"][0]["main"].includes('Snow')) { //when the weather is clouds
+    } else if (res.data["weather"][0]["main"].includes('Snow')) { //when the weather is snow
       var weatherEffect = document.createElement('div');
       weatherEffect.className = "snows";
       var snow_layer1_a = document.createElement('div');
@@ -68,6 +68,46 @@ function App() {
       weatherEffect.appendChild(snow_layer2);
       weatherEffect.appendChild(snow_layer3_a);
       weatherEffect.appendChild(snow_layer3);
+    } else if (res.data["weather"][0]["main"].includes('Drizzle')) { //when the weather is Drizzle
+      var weatherEffect = document.createElement('div');
+      weatherEffect.className = "drizzles";
+      document.body.appendChild(weatherEffect);
+
+      var drizzle_drop1 = document.createElement('div');
+      drizzle_drop1.className = "drizzle drizzle_drop1";
+      var drizzle_drop2 = document.createElement('div');
+      drizzle_drop2.className = "drizzle drizzle_drop2";
+      var drizzle_drop3 = document.createElement('div');
+      drizzle_drop3.className = "drizzle drizzle_drop3";
+      var drizzle_drop4 = document.createElement('div');
+      drizzle_drop4.className = "drizzle drizzle_drop4";
+      var drizzle_drop5 = document.createElement('div');
+      drizzle_drop5.className = "drizzle drizzle_drop5";
+      var drizzle_drop6 = document.createElement('div');
+      drizzle_drop6.className = "drizzle drizzle_drop6";
+      var drizzle_drop7 = document.createElement('div');
+      drizzle_drop7.className = "drizzle drizzle_drop7";
+      var drizzle_drop8 = document.createElement('div');
+      drizzle_drop8.className = "drizzle drizzle_drop8";
+      var drizzle_drop9 = document.createElement('div');
+      drizzle_drop9.className = "drizzle drizzle_drop9";
+      var drizzle_drop10 = document.createElement('div');
+      drizzle_drop10.className = "drizzle drizzle_drop10";
+      var drizzle_drop11 = document.createElement('div');
+      drizzle_drop11.className = "drizzle drizzle_drop11";
+
+      weatherEffect.appendChild(drizzle_drop1);
+      weatherEffect.appendChild(drizzle_drop2);
+      weatherEffect.appendChild(drizzle_drop3);
+      weatherEffect.appendChild(drizzle_drop4);
+      weatherEffect.appendChild(drizzle_drop5);
+      weatherEffect.appendChild(drizzle_drop6);
+      weatherEffect.appendChild(drizzle_drop7);
+      weatherEffect.appendChild(drizzle_drop8);
+      weatherEffect.appendChild(drizzle_drop9);
+      weatherEffect.appendChild(drizzle_drop10);
+      weatherEffect.appendChild(drizzle_drop11);
+
     }
     //console.log(es.data);
   }

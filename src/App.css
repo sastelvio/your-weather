@@ -1020,7 +1020,7 @@ body {
     68.2vw 67.9vh 0 -0.04rem#fff,
     37.8vw 90.6vh 0 -0.32rem#fff,
     62.2vw 42.9vh 0 -0.06rem#fff;
-    /* 42.6vw 42.5vh 0 -0.24rem#fff,
+  /* 42.6vw 42.5vh 0 -0.24rem#fff,
     18.3vw 40.1vh 0 -0.27rem#fff,
     18.7vw 22.7vh 0 -0.39rem#fff,
     27.6vw 20vh 0 -0.03rem#fff,
@@ -1266,7 +1266,7 @@ body {
 96.7vw 94vh 0 -0.46rem#fff,
 78.3vw 52.6vh 0 -0.07rem#fff;*/
 
-    animation-duration: 10s;
+  animation-duration: 10s;
 }
 
 .layer3.a {
@@ -1279,5 +1279,87 @@ body {
   }
 }
 
-
 /*END SNOW*/
+
+/*DRIZZY*/
+.drizzles {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+.drizzle {
+  position: absolute;
+  background: #fff;
+  width: 2px;
+  height: 30px;
+  top: 10%;
+  animation-name: drizzle;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.drizzle_drop1 {
+  left: 5%;
+  animation-duration: 0.7s;
+}
+
+.drizzle_drop2 {
+  left: 15%;
+  animation-duration: 0.5s;
+}
+
+.drizzle_drop3 {
+  left: 25%;
+  animation-duration: 0.8s;
+}
+
+.drizzle_drop4 {
+  left: 35%;
+  animation-duration: 0.6s;
+}
+
+.drizzle_drop5 {
+  left: 45%;
+  animation-duration: 0.55s;
+}
+
+.drizzle_drop6 {
+  left: 55%;
+  animation-duration: 0.7s;
+}
+
+.drizzle_drop7 {
+  left: 65%;
+  animation-duration: 0.5s;
+}
+
+.drizzle_drop8 {
+  left: 75%;
+  animation-duration: 0.8s;
+}
+
+.drizzle_drop9 {
+  left: 85%;
+  animation-duration: 0.6s;
+}
+
+.drizzle_drop10 {
+  left: 95%;
+  animation-duration: 0.55s;
+}
+
+.drizzle_drop11 {
+  left: 10%;
+  animation-duration: 0.55s;
+}
+
+@keyframes drizzle {
+  100% {
+    top: 90%;
+  }
+}
+
+/*END DRIZZY*/
