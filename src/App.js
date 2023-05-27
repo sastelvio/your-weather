@@ -2,6 +2,8 @@ import './App.css';
 import { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import Thunderstorm from './thunderstorm';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   //Declare a new state variable to store location, to make sure the user aproved the use of the location
@@ -159,7 +161,7 @@ function App() {
     return (
       <Fragment>
         <div id='weather_container'>
-            <h1 id='current_weather'>{Math.round(weather["main"]["temp"])}°C</h1>
+          <h1 id='current_weather'>{Math.round(weather["main"]["temp"])}°C</h1>
           <h1>{weather["name"]}, {weather["sys"]["country"]}</h1>
           <h2>{weather["weather"][0]["main"]}</h2>
           <h5>({weather["weather"][0]["description"]})</h5>
@@ -170,9 +172,17 @@ function App() {
             <li>Pressure: {weather["main"]["pressure"]} hPa</li>
             <li>Humidity: {weather["main"]["humidity"]}%</li>
           </ul>
+          <div id="author">
+          <a target="_blank" href="https://github.com/sastelvios" rel="noreferrer">
+            <i class="fab fa-github"></i>
+            Sastelvio Serafim MANUEL
+          </a>
+        </div>
         </div>
 
         {weatherEffect}
+
+        
       </Fragment>
     );
   }
