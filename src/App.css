@@ -48,6 +48,11 @@ body {
   margin: 5px;
 }
 
+ul {
+  list-style-type: none;
+}
+
+
 #author {
   margin: 35px;
 }
