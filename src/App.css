@@ -21,25 +21,32 @@ body {
 
 /*to style the result returned*/
 #root {
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 2;
-  width: 90%;
-  height: 90%;
-  color: #042C37;
-  border-radius: 25px;
-}
-
-#current_weather_container {
+  /*background: rgba(255, 255, 255, 0.7);*/ 
   display: flex;
   justify-content: center;
-  align-items: top;
-  padding: 0 0 0 10px;
+  align-items: center;
+  height: 100%;
 }
+
+#weather_container{
+  z-index: 2;
+  width: 75%;
+  height: 80%;
+  position: absolute;
+  color: #042C37;
+  border-radius: 15px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, .4);
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, .4);
+}
+
 
 #current_weather {
   font-size: 300px;
   margin: 5px;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -83,6 +90,34 @@ code {
   }
 }
 
+/*CLEAR SKY*/
+.clear {
+  position: absolute;
+  z-index: 2;
+  width: 30%;
+  height: 30%;
+  top: 5px;
+  right: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('assets/img/sun.png');
+  animation: bounce_sun 1s infinite;
+}
+
+@keyframes bounce_sun {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/*END CLEAR SKY*/
 
 /*RAIN*/
 
@@ -1363,3 +1398,28 @@ body {
 }
 
 /*END DRIZZY*/
+
+/*THUNDERSTORM*/
+.thunderstorm {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 3;
+}
+
+#thunderstorm3 {
+  z-index: 5;
+  box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.8);
+}
+
+#thunderstorm2 {
+  z-index: 10;
+  box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.8);
+}
+
+#thunderstorm1 {
+  z-index: 100;
+  box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.8);
+}
+
+/*THUNDERSTORM*/
